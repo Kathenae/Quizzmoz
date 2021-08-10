@@ -5,6 +5,7 @@ var http = require('http')
 const cookieParser = require('cookie-parser')
 var express = require('express')
 var {Server} = require('socket.io')
+const morgan = require('morgan')
 
 // Server Setup
 var app = express()
@@ -18,6 +19,7 @@ app.use(express.static(path.join(__dirname, 'static')))
 app.use(express.urlencoded({extended : true}))
 app.use(express.json({type:'application/json'}))
 app.use(cookieParser('gjalskfmkamsi238291jskmaçfm'))
+app.use(morgan('short'))
 
 var users = [
     {id : 0, username : "Lyn", highscore : 250},
