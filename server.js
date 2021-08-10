@@ -108,7 +108,7 @@ app.post('/setUsername/', (req,res) => {
     res.status(200).json('OK')
 })
 
-const PORT = process.env.PORT | 3000
+const PORT = process.env.PORT || 3000
 server.listen(PORT, () => {
     console.log(`Server Started, Listening on port ${PORT}`)
 })
