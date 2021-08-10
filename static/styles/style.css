@@ -1,0 +1,35 @@
+#mainContainer {
+    text-align : center; 
+    min-height:70vh; 
+    margin: 5% 100px;
+}
+
+@keyframes flash {
+    0%{color: yellow;}
+    25%{color: white;}
+    50%{color: yellow;}
+    75%{color: white;}
+    100%{color: yellow;}
+}
+
+.text-flash{
+    animation: flash 1s; 
+    animation-iteration-count: infinite;   
+}
+
+@media (max-width:600px){
+    #mainContainer {
+        border-radius: 0px;
+        min-height: 100vh;
+        margin: 0px;
+    }
+
+    @keyframes slideIn {
+        from{margin-top: 120vh;}
+        to{margin-top: inherit;}
+    }
+    
+    .panel {
+        animation: slideIn 0.75s;
+    }
+}

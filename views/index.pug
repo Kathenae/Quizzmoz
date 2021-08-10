@@ -1,0 +1,128 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="keywords", content="Quizmoz")
+        meta(name="description", content="Teste o seu nível de conhecimento em várias áreas e suba ao topo da tabela de classificação")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="shortcut icon", href="./images/favicon.ico", type="image/x-icon")
+        link(rel="stylesheet", href="./styles/bootstrap.min.css")
+        link(rel="stylesheet", href="./styles/style.css")
+        title Quizmoz
+    body
+        div(id="mainContainer" class="card bg-dark text-light")
+            div(id="menuPanel" class="panel")
+                .card-header
+                    img(src="./images/logo.png" alt="logo.png")
+                    h1(class="text-info mb-0 pb-0") Quizmoz
+                .card-body
+                    h4 Bem Vindo 
+                        span(id="username")
+                    p Teste o seu nível de conhecimento em várias áreas e suba ao topo da tabela de classificação
+                    small Você pode também desafiar um amigo no 
+                        span(class="badge badge-info") Modo 1 vs 1
+                    small  ou participar do 
+                        span(class="badge badge-warning text-light") desafio do dia
+                    br
+                    br
+                    button(class="btn btn-info m-2" style="width:100%" id="startButton") Jogar
+                    button(class="btn btn-info m-2" style="width:100%" id="scoreboardButton") Tabela de Classificação
+                    button(class="btn btn-info m-2" style="width:100%" id="multiplayerButton") Modo 1 vs 1
+                    br
+                    br
+                    button(class="btn btn-warning m-2 text-light" style="width:100%" id="challengeButton") Desafio do Dia
+            div(id="playPanel" class="panel")
+                button(class="m-2 btn btn-sm btn-outline-secondary pl-1 pr-1" id="returnButton" style="position : absolute; left:10px")
+                    img(src="./images/arrow.ico" alt="arrow.ico" )
+
+                .card-header
+                    img(src="./images/logo.png" alt="logo.png")
+                    h1(class="text-info") Quizmoz
+                    h6(id="timeLabel" class="text-warning")
+                    small(id="correctAnswersLabel") 
+                .card-body
+                    h6(id="questioNProgressLabel") 
+                    h4(id="question") Some Question thats too difficult to answer?
+                    small(class="text-success" id="answerResultLabel") 
+                    p(id="explanationLabel")
+                    button(class="btn btn-secondary m-2" style="width:100%" id="nextQuestionButton") Próxima Pergunta
+                    br
+                    br
+                    button(class="btn btn-primary m-2" style="width:100%" id="choice1") I know the answer
+                    button(class="btn btn-primary m-2" style="width:100%" id="choice2") Maybe we're not supposed to answer
+                    button(class="btn btn-primary m-2" style="width:100%" id="choice3") I knew the answer, but i can't remember correctly
+                    button(class="btn btn-primary m-2" style="width:100%" id="choice4") yes
+            div(id="endGamePanel" class="panel")
+                button(class="m-2 btn btn-sm btn-outline-secondary pl-1 pr-1" id="returnButton2" style="position : absolute; left:10px")
+                    img(src="./images/arrow.ico" alt="arrow.ico" )
+                .card-header
+                    img(src="./images/logo.png" alt="logo.png")
+                    h1(class="text-info mb-0 pb-0") Quizmoz
+                .card-body
+                    h4 Fim do Jogo
+                    p A sua pontuação final é: 
+                    p(class="badge badge-warning text-light" style="font-size:25px;" id="finalScoreBadge") 200pts
+                    button(class="btn btn-info m-2" style="width:100%" id="playAgainButton") Jogar Novamente
+                    button(class="btn btn-info m-2" style="width:100%" id="scoreboardButton2") Ver Classificação
+                    #usernameForm
+                        br
+                        small Digite o seu nome para podermos usa-ló na tabela de classificação
+                        br
+                        small(class="text-danger" id="usernameErrorLabel")
+                        input(type="text" class="form-control m-2" id="usernameField")
+                        button(class="btn btn-info m-2" style="width:100%" id="sendButton") Enviar
+            div(id="scoreboardPanel" class="panel")
+                button(class="m-2 btn btn-sm btn-outline-secondary pl-1 pr-1" id="returnButton3" style="position : absolute; left:10px")
+                    img(src="./images/arrow.ico" alt="arrow.ico" )
+
+                .card-header
+                    img(src="./images/logo.png" alt="logo.png")
+                    h1(class="text-info mb-0 pb-0") Quizmoz
+                .card-body
+                    h3 Pontuações
+                    br
+                    #scoreList
+                        button(class="btn btn-secondary m-2" style="width:100%")
+                            h3(class="float-left") 1
+                            span Badpad_Y
+                            br
+                            span(class="badge badge-primary m-0") 2350pts
+                        button(class="btn btn-secondary m-2" style="width:100%")
+                            h3(class="float-left") 2
+                            span ErnestoXzx
+                            br
+                            span(class="badge badge-warning m-0 text-light") 2050pts
+                        button(class="btn btn-secondary m-2" style="width:100%")
+                            h3(class="float-left") 3
+                            span Ballon2X
+                            br
+                            span(class="badge badge-primary m-0") 1950pts
+                        button(class="btn btn-secondary m-2" style="width:100%")
+                            h3(class="float-left") 4
+                            span Cracken3Z
+                            br
+                            span(class="badge badge-primary m-0") 1050pts
+            div(id="multiplayerPanel" class="panel")
+                button(class="m-2 btn btn-sm btn-outline-secondary pl-1 pr-1" id="returnButton4" style="position : absolute; left:10px")
+                    img(src="./images/arrow.ico" alt="arrow.ico" )
+
+                .card-header
+                    img(src="./images/logo.png" alt="logo.png")
+                    h1(class="text-info mb-0 pb-0") Quizmoz
+                .card-body 
+                    h5 Oops!
+                    p O Modo 1 vs 1 ainda não esta pronto!
+            div(id="challengePanel" class="panel")
+                button(class="m-2 btn btn-sm btn-outline-secondary pl-1 pr-1" id="returnButton5" style="position : absolute; left:10px")
+                    img(src="./images/arrow.ico" alt="arrow.ico" )
+
+                .card-header
+                    img(src="./images/logo.png" alt="logo.png")
+                    h1(class="text-info mb-0 pb-0") Quizmoz
+                .card-body 
+                    h5 Oops!
+                    p Esta funcionalidade ainda não esta pronta
+        script(src="./javascript/jquery.js") 
+        script(src="./javascript/bootstrap.bundle.min.js") 
+        script(src="./javascript/index.js")
