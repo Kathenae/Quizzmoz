@@ -12,6 +12,11 @@ html(lang="en")
         link(rel="stylesheet", href="./styles/style.css")
         title Quizmoz
     body
+        audio(src="/audio/correct.mp3" id="correct.mp3")
+        audio(src="/audio/tick.mp3" id="tick.mp3") 
+        audio(src="/audio/timeout.mp3" id="timeout.mp3") 
+        audio(src="/audio/wrong.mp3" id="wrong.mp3") 
+
         div(id="mainContainer" class="card bg-dark text-light")
             div(id="menuPanel" class="panel")
                 .card-header
@@ -37,23 +42,26 @@ html(lang="en")
                 button(class="m-2 btn btn-sm btn-outline-secondary pl-1 pr-1" id="returnButton" style="position : absolute; left:10px")
                     img(src="./images/arrow.ico" alt="arrow.ico" )
 
-                .card-header
+                .card-header.text-center
                     img(src="./images/logo.png" alt="logo.png")
                     h1(class="text-info") Quizmoz
                     h6(id="timeLabel" class="text-warning")
-                    small(id="correctAnswersLabel") 
+                    h6(id="correctAnswersLabel")
                 .card-body
-                    h6(id="questioNProgressLabel") 
-                    h4(id="question") Some Question thats too difficult to answer?
-                    small(class="text-success" id="answerResultLabel") 
-                    p(id="explanationLabel")
-                    button(class="btn btn-secondary m-2" style="width:100%" id="nextQuestionButton") Próxima Pergunta
-                    br
-                    br
-                    button(class="btn btn-primary m-2" style="width:100%" id="choice1") I know the answer
-                    button(class="btn btn-primary m-2" style="width:100%" id="choice2") Maybe we're not supposed to answer
-                    button(class="btn btn-primary m-2" style="width:100%" id="choice3") I knew the answer, but i can't remember correctly
-                    button(class="btn btn-primary m-2" style="width:100%" id="choice4") yes
+                    img(src="/images/loading.gif" id="spinner", alt="loading.gif")
+                    #questionContent
+                        h6(id="questioNProgressLabel")
+                        h4(id="question") Some Question thats too difficult to answer?
+                        small(class="text-success" id="answerResultLabel") 
+                        p(id="explanationLabel")
+                        button(class="btn btn-secondary m-2" style="width:100%" id="nextQuestionButton") Próxima Pergunta
+                        br
+                        br
+                        button(class="btn btn-primary m-2" style="width:100%" id="choice1") I know the answer
+                        button(class="btn btn-primary m-2" style="width:100%" id="choice2") Maybe we're not supposed to answer
+                        button(class="btn btn-primary m-2" style="width:100%" id="choice3") I knew the answer, but i can't remember correctly
+                        button(class="btn btn-primary m-2" style="width:100%" id="choice4") yes
+
             div(id="endGamePanel" class="panel")
                 button(class="m-2 btn btn-sm btn-outline-secondary pl-1 pr-1" id="returnButton2" style="position : absolute; left:10px")
                     img(src="./images/arrow.ico" alt="arrow.ico" )

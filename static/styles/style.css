@@ -4,6 +4,10 @@
     margin: 5% 100px;
 }
 
+.panel {
+    display: none;
+}
+
 @keyframes flash {
     0%{color: yellow;}
     25%{color: white;}
@@ -25,11 +29,12 @@
     }
 
     @keyframes slideIn {
-        from{margin-top: 120vh;}
-        to{margin-top: inherit;}
+        from{top: 120vh;}
+        to{top: 0vh;}
     }
     
     .panel {
+        position: relative;
         animation: slideIn 0.75s;
     }
 }

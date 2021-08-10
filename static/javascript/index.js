@@ -54,12 +54,11 @@ function Init() {
     }
 
     document.getElementById('playPanel').onShown = function () {
-
+        
         // Setup next question button handler
         nextQuestionButton.onclick = (evt) => {
             if (timeout == false) {
                 startTimer()
-                showPanel('menuPanel')
                 showPanel('playPanel')
             }
         }
@@ -68,11 +67,21 @@ function Init() {
         for (let i = 0; i < choiceButtons.length; i++) {
             choiceButtons[i].onclick = (evt) => {
                 onChoiceMade(i)
-                
             }
         }
+        
+
+        // hide content until we fetch stuff
+        stopTimer()
+        document.getElementById('questionContent').style.opacity = "0%"
+        $('#spinner').show()
 
         fetchRandomQuestion((newQuestion) => {
+            
+            // when fetch is done
+            startTimer()
+            document.getElementById('questionContent').style.opacity = "100%"
+            $('#spinner').hide()
 
             currentQuestion = newQuestion
 
@@ -138,8 +147,8 @@ function startGame() {
     currentQuestionCount = 1
     timeout = false
     choiceIsMade = false
-    showPanel('playPanel')
     startTimer()
+    showPanel('playPanel')
 }
 
 function onChoiceMade(choiceNumber) {
@@ -316,20 +325,17 @@ function showPanel(panelName) {
 
     // show the panel
     $("#" + panelName).show()
+    
     var panelDOM = document.getElementById(panelName)
+    panelDOM.style.animation = 'none'
+    panelDOM.offsetHeight
+    panelDOM.style.animation = null
+
     if (panelDOM.onShown){
         panelDOM.onShown()
     }
 }
 
 function playSound(soundName) {
-    if (foundSounds[soundName] != undefined) {
-        foundSounds[soundName].play()
-    }
-    else {
-        var sound = new Audio(`./audio/${soundName}`)
-        foundSounds[soundName] = sound
-        foundSounds[soundName].play()
-
-    }
+    document.getElementById(soundName).play()
 }

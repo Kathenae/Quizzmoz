@@ -64,7 +64,7 @@ app.get('/randomQuestion/', (req,res) => {
 app.get('/getScoreboard', (req,res) => {
     var allScores = users.filter(user => user.username != null)
     allScores.sort((user1,user2) => user2.highscore - user1.highscore)
-    allScores = allScores.splice(0,10)
+    allScores = allScores.splice(0,100)
 
     for (let i = 0; i < allScores.length; i++) {
         const user = allScores[i];
